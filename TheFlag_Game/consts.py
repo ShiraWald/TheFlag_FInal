@@ -20,6 +20,24 @@ MINES_COUNT = 20
 MINE_ROWS = 1
 MINE_COLS = 3
 
+#images
+EXPLOTION_IMG = "explotion.png"
+FLAG_IMG = "flag.png"
+GRASS_IMG = "grass.png"
+GUARD_IMG = "guard.png"
+INJURY_IMG = "injury.png"
+MINE_IMG = "mine.png"
+SNAKE_IMG = "snake.png"
+SOLDIER_IMG = "soldier.png"
+SOLDIER_NIGHT_IMG = "soldier_night.png"
+TELEPORT_IMG = "teleport.png"
+
+#colors
+BACKGROUND_COLOR = (76, 177, 45)
+
+#Grass
+GRASS_AMOUNT = 20
+
 MINE_SIGN=1
 GRASS_SIGN=0
 SOLIDER_SIGN=2

@@ -26,6 +26,7 @@ def solider_location(current_location):
 
 def locate_solider_pic(location):
     screen1=screen.screen
+    #2
 
 
 

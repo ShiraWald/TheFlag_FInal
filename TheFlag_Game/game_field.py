@@ -41,18 +41,7 @@ def mines_locations():
         mines.append((row,col))
     return mines
 
-def solider_location(current_location , move_y,move_x):
-    r = consts.SOLDIER_ROWS
-    c = consts.SOLDIER_COLS
-    sign = consts.SOLIDER_SIGN
-    solider_in_lst=[]
-    for row in range(r):
-        y = current_location[0]+row
-        for col in range(c):
-            x = current_location[1]+col
-            board[y+move_y][x+move_x]=sign
-            solider_in_lst.append((y+move_y,x+move_x))
-    return solider_in_lst
+
 
 
 
@@ -71,7 +60,7 @@ def flag_location():
 def locate_in_board():
     create_clear_board()
     flag_location()
-    solider_location((0,0),0,0)
+    # solider_location((0,0),0,0)
     mines_locations()
 
     # # corners=[(0,0),(0,consts.BOARD_COLS-1),(consts.BOARD_ROWS-1,0),(consts.BOARD_ROWS-1,consts.BOARD_COLS-1)]

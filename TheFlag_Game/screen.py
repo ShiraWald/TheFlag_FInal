@@ -36,6 +36,11 @@ def draw_flag():
         flag_rect = flag_img.get_rect()
         screen.blit(flag_img, flag_rect)
 
+
+# def solider(): #not sure
+#         solider_img = pygame.image.load(consts.SOLDIER_IMG)
+
+
 def draw_game():
         screen.fill(consts.BACKGROUND_COLOR)
         draw_flag()

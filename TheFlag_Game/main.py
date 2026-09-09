@@ -59,6 +59,7 @@ def main():
                         screen.draw_normal(current_solider_location)
 
                     if soldier.soldier_check_mine(current_solider_location):
+                        screen.draw_explosion(current_solider_location)
                         print(f"boom in {current_solider_location}")
                         screen.draw_message(consts.MESSAGE_LOSE)
                         finish = True

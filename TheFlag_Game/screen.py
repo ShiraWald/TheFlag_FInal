@@ -40,7 +40,7 @@ def draw_soldier(location):
                                                 (consts.SOLDIER_COLS * consts.CELL_SIZE,
                                                  consts.SOLDIER_ROWS * consts.CELL_SIZE))
         screen.blit(soldier_img, (location[1]*consts.CELL_SIZE,location[0]*consts.CELL_SIZE))
-        # draw_normal
+        pygame.display.flip()
 
 
 
@@ -67,11 +67,11 @@ def draw_flag():
         screen.blit(flag_img, (consts.WINDOW_WIDTH  - consts.FLAG_ROWS * consts.CELL_SIZE , consts.WINDOW_HEIGHT - consts.FLAG_COLS * consts.CELL_SIZE ))
 
 def draw_night_soldier(location):
-        night_soldier_img = pygame.image.load(consts.SOLDIER_NIGHT_IMG)
-        night_soldier_img = pygame.transform.smoothscale(night_soldier_img,
-                                                (consts.SOLDIER_COLS * consts.CELL_SIZE,
-                                                 consts.SOLDIER_ROWS * consts.CELL_SIZE))
-        screen.blit(night_soldier_img, location)
+        soldier_night_img = pygame.image.load(consts.SOLDIER_NIGHT_IMG)
+        soldier_night_img = pygame.transform.smoothscale(soldier_night_img,
+                                                   (consts.SOLDIER_COLS * consts.CELL_SIZE,
+                                                    consts.SOLDIER_ROWS * consts.CELL_SIZE))
+        screen.blit(soldier_night_img, (location[1] * consts.CELL_SIZE, location[0] * consts.CELL_SIZE))
 
 
 
@@ -98,13 +98,15 @@ def draw_explosion(location):
         explosion_img = pygame.image.load(consts.EXPLOTION_IMG)
         explosion_img = pygame.transform.smoothscale(explosion_img,
                                                          (consts.GRASS_HEIGHT , consts.GRASS_WIDTH))
-        screen.blit(explosion_img, location)
+        screen.blit(explosion_img, (location[1] * consts.CELL_SIZE, (location[0] + 2) * consts.CELL_SIZE))
+        pygame.display.flip()
 
 
-def night_vision():
+def night_vision(location):
         screen.fill(consts.NIGHT_BACKGROUND_COLOR)
         draw_grid()
         draw_mine(mine_locations)
+        draw_night_soldier(location)
         pygame.display.flip()
 
 
@@ -116,8 +118,8 @@ def draw_normal(location):
         pygame.display.flip()
 
 
-def draw_game(location):
 
+def draw_game(location):
         draw_normal(location)
         pygame.display.flip()
 

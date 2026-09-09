@@ -41,7 +41,7 @@ def check_near_mines(row,col):
 
 def mines_locations():
     mines_x = random.sample(range(1,consts.BOARD_COLS-consts.MINE_COLS), consts.MINES_COUNT)
-    mines_y = random.sample(range(1,consts.BOARD_ROWS), consts.MINES_COUNT)
+    mines_y = random.sample(range(consts.SOLDIER_ROWS,consts.BOARD_ROWS), consts.MINES_COUNT)
     mines=[]
     for i in range(consts.MINES_COUNT):
         row=mines_y[i]

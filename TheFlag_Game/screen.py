@@ -82,10 +82,15 @@ def start_message():
         screen.blit(text , (0,1))
 
 
-def draw_message(message, font_size, color, location):
-    font = pygame.font.SysFont(consts.FONT_NAME, font_size)
-    text_img = font.render(message, True, color)
-    screen.blit(text_img, location)
+def draw_message(message):
+    pygame.font.init()
+    win_location = \
+        (0.2 * consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT / 2 - (65 // 2))
+    my_font = pygame.font.SysFont('Comic Sans MS', 50)
+    text = my_font.render(message, False, consts.MESSAGE_COLOR)
+    screen.blit(text, win_location)
+    pygame.display.flip()
+
 
 #1
 

@@ -2,7 +2,6 @@ import screen
 import pygame
 import soldier
 import game_field
-from TheFlag_Game.screen import night_vision, draw_normal
 import consts
 
 mine_locations = game_field.mines_locations()
@@ -11,6 +10,10 @@ def main():
 
 
     current_solider_location = (0, 0)
+    screen.draw_game(current_solider_location)
+    screen.draw_soldier(current_solider_location)
+    screen.start_message()
+    pygame.time.wait(1000)
     screen.draw_game(current_solider_location)
     screen.draw_soldier(current_solider_location)
     finish = False

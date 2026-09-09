@@ -25,31 +25,38 @@ def main():
                         solider_new_location = (current_solider_location[0] - 1, current_solider_location[1])
                         if soldier.soldier_check_location(solider_new_location):
                             current_solider_location = solider_new_location
-                            draw_normal(current_solider_location)
+                            screen.draw_soldier(current_solider_location)
+                            screen.draw_normal(current_solider_location)
 
                     elif event.key == pygame.K_DOWN:
                         solider_new_location = (current_solider_location[0] + 1, current_solider_location[1])
                         if soldier.soldier_check_location(solider_new_location):
                             current_solider_location = solider_new_location
-                            draw_normal(current_solider_location)
+                            screen.draw_soldier(current_solider_location)
+                            screen.draw_normal(current_solider_location)
+
 
                     elif event.key == pygame.K_LEFT:
                         solider_new_location = (current_solider_location[0], current_solider_location[1] - 1)
                         if soldier.soldier_check_location(solider_new_location):
                             current_solider_location = solider_new_location
-                            # screen.draw_soldier(current_solider_location)
-                            draw_normal(current_solider_location)
+                            screen.draw_soldier(current_solider_location)
+                            screen.draw_normal(current_solider_location)
+
 
                     elif event.key == pygame.K_RIGHT:
                         solider_new_location = (current_solider_location[0], current_solider_location[1] + 1)
                         if soldier.soldier_check_location(solider_new_location):
                             current_solider_location = solider_new_location
-                            draw_normal(current_solider_location)
+                            screen.draw_soldier(current_solider_location)
+                            screen.draw_normal(current_solider_location)
+
 
                     elif event.key == pygame.K_KP_ENTER:
-                        night_vision()
+                        screen.night_vision(current_solider_location)
                         pygame.time.wait(1000)
-                        draw_normal(current_solider_location)
+                        screen.draw_soldier(current_solider_location)
+                        screen.draw_normal(current_solider_location)
 
                     if soldier.soldier_check_mine(current_solider_location):
                         print(f"boom in {current_solider_location}")

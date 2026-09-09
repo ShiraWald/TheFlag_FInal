@@ -31,6 +31,7 @@ def draw_grass():
 
         for pos in grass_list:
                 screen.blit(grass_img, pos)
+        pygame.display.flip()
 
 
 def draw_soldier(location):
@@ -39,7 +40,10 @@ def draw_soldier(location):
                                                 (consts.SOLDIER_COLS * consts.CELL_SIZE,
                                                  consts.SOLDIER_ROWS * consts.CELL_SIZE))
         screen.blit(soldier_img, (location[1]*consts.CELL_SIZE,location[0]*consts.CELL_SIZE))
-        pygame.display.flip()
+        draw_normal
+
+
+
 
 def draw_grid():
         for x in range(0, consts.WINDOW_WIDTH , consts.CELL_SIZE):
@@ -70,6 +74,7 @@ def draw_night_soldier(location):
         screen.blit(night_soldier_img, location)
 
 
+
 def start_message():
         pygame.font.init()
         my_font = pygame.font.SysFont('Comic Sans MS', 30)
@@ -90,30 +95,17 @@ def night_vision():
         pygame.display.flip()
 
 
-def draw_normal():
+def draw_normal(location):
         screen.fill(consts.BACKGROUND_COLOR)
         draw_grass()
-        start_message()
         draw_flag()
+        draw_soldier(location)
+        pygame.display.flip()
 
 
+def draw_game(location):
 
-
-
-        #draw_night_soldier(game_field.soldier_locations())
-
-
-
-
-# def solider(): #not sure
-#         solider_img = pygame.image.load(consts.SOLDIER_IMG)
-# def draw_message(message, font_size, color, location):
-#     font = pygame.font.SysFont(consts.FONT_NAME, font_size)
-#     text_img = font.render(message, True, color)
-#     screen.blit(text_img, location)
-
-def draw_game():
-        draw_normal()
+        draw_normal(location)
         pygame.display.flip()
 
 

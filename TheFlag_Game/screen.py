@@ -1,11 +1,15 @@
+import time
 import pygame
 import consts
 import random
+
 import game_field
 
 
 screen = pygame.display.set_mode(
         (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
+mine_locations = game_field.mines_locations()
+
 
 def random_grass_pos():
         grass_list = []
@@ -16,13 +20,14 @@ def random_grass_pos():
                 grass_list.append((x, y))
         return grass_list
 
+grass_locations = random_grass_pos()
 
 def draw_grass():
 
         grass_img = pygame.image.load(consts.GRASS_IMG)
         grass_img = pygame.transform.smoothscale(grass_img,
                                           (consts.GRASS_HEIGHT , consts.GRASS_WIDTH))
-        grass_list = random_grass_pos()
+        grass_list = grass_locations
 
         for pos in grass_list:
                 screen.blit(grass_img, pos)
@@ -37,11 +42,10 @@ def draw_soldier(location):
         pygame.display.flip()
 
 def draw_grid():
-        BLACK = (0,0,0)
         for x in range(0, consts.WINDOW_WIDTH , consts.CELL_SIZE):
                 for y in range(0, consts.WINDOW_HEIGHT , consts.CELL_SIZE):
                         rect = pygame.Rect(x , y , consts.CELL_SIZE , consts.CELL_SIZE)
-                        pygame.draw.rect(screen , BLACK , rect , 1)
+                        pygame.draw.rect(screen , consts.GRID_COLOR , rect , 1 )
 
 
 def draw_mine(location):
@@ -52,14 +56,52 @@ def draw_mine(location):
                 screen.blit(mine_img, (  mine[1] * consts.CELL_SIZE , mine[0] * consts.CELL_SIZE))
 
 
-
-
 def draw_flag():
         flag_img = pygame.image.load(consts.FLAG_IMG)
         flag_img = pygame.transform.smoothscale(flag_img,
                                           (consts.FLAG_ROWS * consts.CELL_SIZE, consts.FLAG_COLS * consts.CELL_SIZE))
-        flag_rect = flag_img.get_rect()
         screen.blit(flag_img, (consts.WINDOW_WIDTH  - consts.FLAG_ROWS * consts.CELL_SIZE , consts.WINDOW_HEIGHT - consts.FLAG_COLS * consts.CELL_SIZE ))
+
+def draw_night_soldier(location):
+        night_soldier_img = pygame.image.load(consts.SOLDIER_NIGHT_IMG)
+        night_soldier_img = pygame.transform.smoothscale(night_soldier_img,
+                                                (consts.SOLDIER_COLS * consts.CELL_SIZE,
+                                                 consts.SOLDIER_ROWS * consts.CELL_SIZE))
+        screen.blit(night_soldier_img, location)
+
+def start_message():
+        pygame.font.init()
+        my_font = pygame.font.SysFont('Comic Sans MS', 30)
+        text = my_font.render(consts.MESSAGE_TEXT , False , consts.MESSAGE_COLOR)
+        screen.blit(text , (0,1))
+
+def draw_explosion(location):
+        explosion_img = pygame.image.load(consts.EXPLOTION_IMG)
+        explosion_img = pygame.transform.smoothscale(explosion_img,
+                                                         (consts.GRASS_HEIGHT , consts.GRASS_WIDTH))
+        screen.blit(explosion_img, location)
+
+
+def night_vision():
+        screen.fill(consts.NIGHT_BACKGROUND_COLOR)
+        draw_grid()
+        draw_mine(mine_locations)
+        pygame.display.flip()
+
+
+def draw_normal():
+        screen.fill(consts.BACKGROUND_COLOR)
+        draw_grass()
+        start_message()
+        draw_flag()
+
+
+
+
+
+        #draw_night_soldier(game_field.soldier_locations())
+
+
 
 
 # def solider(): #not sure
@@ -70,11 +112,7 @@ def draw_flag():
 #     screen.blit(text_img, location)
 
 def draw_game():
-        screen.fill(consts.BACKGROUND_COLOR)
-        draw_flag()
-        draw_grass()
-        draw_mine(game_field.mines_locations())
-        draw_grid()
+        draw_normal()
         pygame.display.flip()
 
 

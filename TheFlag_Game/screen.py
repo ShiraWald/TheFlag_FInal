@@ -27,6 +27,14 @@ def draw_grass():
         for pos in grass_list:
                 screen.blit(grass_img, pos)
 
+
+def draw_soldier(location):
+        soldier_img = pygame.image.load(consts.SOLDIER_IMG)
+        soldier_img = pygame.transform.smoothscale(soldier_img,
+                                                (consts.SOLDIER_COLS * consts.CELL_SIZE,
+                                                 consts.SOLDIER_ROWS * consts.CELL_SIZE))
+        screen.blit(soldier_img, location)
+
 def draw_grid():
         BLACK = (0,0,0)
         for x in range(0, consts.WINDOW_WIDTH , consts.CELL_SIZE):

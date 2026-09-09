@@ -87,6 +87,8 @@ def draw_message(message, font_size, color, location):
     text_img = font.render(message, True, color)
     screen.blit(text_img, location)
 
+#1
+
 def draw_explosion(location):
         explosion_img = pygame.image.load(consts.EXPLOTION_IMG)
         explosion_img = pygame.transform.smoothscale(explosion_img,

@@ -40,7 +40,7 @@ def draw_soldier(location):
                                                 (consts.SOLDIER_COLS * consts.CELL_SIZE,
                                                  consts.SOLDIER_ROWS * consts.CELL_SIZE))
         screen.blit(soldier_img, (location[1]*consts.CELL_SIZE,location[0]*consts.CELL_SIZE))
-        draw_normal
+        # draw_normal
 
 
 
@@ -80,6 +80,12 @@ def start_message():
         my_font = pygame.font.SysFont('Comic Sans MS', 30)
         text = my_font.render(consts.MESSAGE_TEXT , False , consts.MESSAGE_COLOR)
         screen.blit(text , (0,1))
+
+
+def draw_message(message, font_size, color, location):
+    font = pygame.font.SysFont(consts.FONT_NAME, font_size)
+    text_img = font.render(message, True, color)
+    screen.blit(text_img, location)
 
 def draw_explosion(location):
         explosion_img = pygame.image.load(consts.EXPLOTION_IMG)

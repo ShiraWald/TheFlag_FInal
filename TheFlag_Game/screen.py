@@ -69,6 +69,7 @@ def draw_night_soldier(location):
                                                  consts.SOLDIER_ROWS * consts.CELL_SIZE))
         screen.blit(night_soldier_img, location)
 
+
 def start_message():
         pygame.font.init()
         my_font = pygame.font.SysFont('Comic Sans MS', 30)

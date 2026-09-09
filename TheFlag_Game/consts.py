@@ -1,4 +1,7 @@
 #board
+import pygame.event
+import screen
+
 BOARD_ROWS = 25
 BOARD_COLS = 50
 CELL_SIZE = 20 # pixels per cell
@@ -47,4 +50,11 @@ SOLIDER_SIGN=2
 FLAG_SIGN=3
 
 #Night Vision
-GRID_COLOR = (0,0,0)
+GRID_COLOR = (20, 125, 64)
+NIGHT_BACKGROUND_COLOR = (0,0,0)
+
+#Start Message
+MESSAGE_TEXT  = "Welcome to The Flag game.\n Have Fun!"
+MESSAGE_COLOR = (255,255,255)
+MESSAGE_LOCATION = (0 * BOARD_ROWS,1 * BOARD_COLS)
+#FONT = pygame.font.Font(None,20)

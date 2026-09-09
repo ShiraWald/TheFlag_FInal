@@ -4,11 +4,11 @@ import consts
 import random
 
 import game_field
-
+from TheFlag_Game.game_field import mines_locations
 
 screen = pygame.display.set_mode(
         (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
-mine_locations = game_field.mines_locations()
+
 
 
 def random_grass_pos():
@@ -102,10 +102,10 @@ def draw_explosion(location):
         pygame.display.flip()
 
 
-def night_vision(location):
+def night_vision(location , mines_location):
         screen.fill(consts.NIGHT_BACKGROUND_COLOR)
         draw_grid()
-        draw_mine(mine_locations)
+        draw_mine(mines_location)
         draw_night_soldier(location)
         pygame.display.flip()
 

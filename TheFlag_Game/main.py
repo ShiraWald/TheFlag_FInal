@@ -2,13 +2,16 @@ import screen
 import pygame
 import soldier
 import game_field
+from TheFlag_Game.screen import night_vision, draw_normal
+
 
 def main():
 
     done = False
 
-    screen.draw_game()
+
     current_solider_location = (0, 0)
+    screen.draw_game(current_solider_location)
     screen.draw_soldier(current_solider_location)
     while not done:
 
@@ -21,23 +24,33 @@ def main():
                     solider_new_location = (current_solider_location[0]-1 , current_solider_location[1])
                     if soldier.soldier_check_location(solider_new_location):
                         current_solider_location = solider_new_location
-                        screen.draw_soldier(current_solider_location)
+                        draw_normal(current_solider_location)
 
                 elif event.key == pygame.K_DOWN:
                     solider_new_location = (current_solider_location[0]+1, current_solider_location[1])
                     if soldier.soldier_check_location(solider_new_location):
                         current_solider_location = solider_new_location
-                        screen.draw_soldier(current_solider_location)
+                        draw_normal(current_solider_location)
+
                 elif event.key == pygame.K_LEFT:
                     solider_new_location = (current_solider_location[0], current_solider_location[1]-1 )
                     if soldier.soldier_check_location(solider_new_location):
                         current_solider_location = solider_new_location
-                        screen.draw_soldier(current_solider_location)
+                        # screen.draw_soldier(current_solider_location)
+                        draw_normal(current_solider_location)
+
                 elif event.key == pygame.K_RIGHT:
                     solider_new_location = (current_solider_location[0], current_solider_location[1]+1 )
                     if soldier.soldier_check_location(solider_new_location):
                         current_solider_location = solider_new_location
-                        screen.draw_soldier(current_solider_location)
+                        draw_normal(current_solider_location)
+
+                elif event.key == pygame.K_KP_ENTER:
+                    night_vision()
+                    pygame.time.wait(1000)
+                    draw_normal(current_solider_location)
+
+
                 if soldier.soldier_check_mine(current_solider_location):
                     print("boom")
                 if soldier.soldier_check_flag(current_solider_location):

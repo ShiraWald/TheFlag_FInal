@@ -33,7 +33,8 @@ def draw_soldier(location):
         soldier_img = pygame.transform.smoothscale(soldier_img,
                                                 (consts.SOLDIER_COLS * consts.CELL_SIZE,
                                                  consts.SOLDIER_ROWS * consts.CELL_SIZE))
-        screen.blit(soldier_img, location)
+        screen.blit(soldier_img, (location[1]*consts.CELL_SIZE,location[0]*consts.CELL_SIZE))
+        pygame.display.flip()
 
 def draw_grid():
         BLACK = (0,0,0)
@@ -63,7 +64,10 @@ def draw_flag():
 
 # def solider(): #not sure
 #         solider_img = pygame.image.load(consts.SOLDIER_IMG)
-
+# def draw_message(message, font_size, color, location):
+#     font = pygame.font.SysFont(consts.FONT_NAME, font_size)
+#     text_img = font.render(message, True, color)
+#     screen.blit(text_img, location)
 
 def draw_game():
         screen.fill(consts.BACKGROUND_COLOR)

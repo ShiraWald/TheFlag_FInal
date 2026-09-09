@@ -80,7 +80,7 @@ def start_message():
         my_font = pygame.font.SysFont('Comic Sans MS', 30)
         text = my_font.render(consts.MESSAGE_TEXT , False , consts.MESSAGE_COLOR)
         screen.blit(text , (0,1))
-
+#lo
 
 def draw_message(message):
     pygame.font.init()

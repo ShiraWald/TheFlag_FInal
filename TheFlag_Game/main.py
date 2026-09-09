@@ -41,7 +41,7 @@ def main():
                 if soldier.soldier_check_mine(current_solider_location):
                     print("boom")
                 if soldier.soldier_check_flag(current_solider_location):
-                    print("flagggg")
+                    print("flaggg")
 
 
 

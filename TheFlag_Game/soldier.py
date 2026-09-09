@@ -41,7 +41,7 @@ def soldier_check_location(solider_current):
     if solider_current[0]<0:
         return False
     return True
-
+#a
 def soldier_check_mine(soldier_current):
     solider_cur_legs=soldier_legs(soldier_current)
     for leg in solider_cur_legs:

@@ -4,7 +4,7 @@ import consts
 import random
 
 board=[]
-
+#a
 def create_clear_board():
     for row in range(consts.BOARD_ROWS):
         current_row=[]
